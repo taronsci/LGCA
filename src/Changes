@@ -1,0 +1,17 @@
+/** Move a particle in direction (dx,dy) or reflect if hitting a wall. */
+    private void moveTo(int x, int y, int dirBit, int dx, int dy) {
+        int nx = x + dx, ny = y + dy;
+
+        // If out of bounds or target is solid, reflect:
+        if (nx < 0 || nx >= width || ny < 0 || ny >= height || (grid[ny][nx] & SOLID) != 0) {
+            // reflect: set opposite direction in original cell
+            int oppositeBit = 1 << ((Integer.numberOfTrailingZeros(dirBit) + 3) % 6);
+            nextGrid[y][x] |= (byte) oppositeBit;
+        } else {
+            // propagate to neighbor (in next grid state)
+            nextGrid[ny][nx] |= (byte) dirBit;
+        }
+
+        //instead of this, could clear all 6bits in the method above
+//        grid[y][x] &= (byte) ~dirBit; //clears specified direction of byte after propagating it. grid should be empty after propagation, only SOLID, RAND bits should be alive
+    }
