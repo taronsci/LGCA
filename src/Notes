@@ -1,0 +1,90 @@
+1000x600grid
+300-400wall
+double scale = (double) cellSize * 0.5/ blockSize;
+double headLen = 6.0;
+double headWidth = 4.0;
+___________
+1.test1,t -> test1,t+dx
+grid[i][1] = EAST
+after some iterations converges? to
+
+2.random1
+grid[i][1] = generateWeightedByte(new double[]{0.9,0.7,0.4,0.3,0.4,0.7});
+after some iteration we get similar (more dense) pattern to 1.
+
+3.random2, ~2054
+grid[i][1] = generateWeightedByte(new double[]{0.8,0.5,0.2,0.1,0.2,0.5});
+after some iteration we get similar (more dense) pattern to 1 (less dense than 2)
+
+4.random3, ~2057steps
+grid[i][1] = generateWeightedByte(new double[]{0.4, 0.3, 0.6, 0.5, 0.6, 0.3});
+same pattern
+
+5.random4, ~2059steps
+grid[i][1] = generateWeightedByte(new double[]{0.1, 0.2, 0.5, 0.8, 0.5, 0.2});
+
+conclusion: we get same kind of pattern
+
+6.test1.1
+grid[i][1] = generateWeightedByte(new double[]{0.8,0.5,0.2,0.1,0.2,0.5});
+interesting pattern
+
+7.test1.1, 2197
+double scale = (double) cellSize * 2/(blockSize * blockSize);
+
+8.test1.1.2, 2320
+double scale = (double) cellSize * 10/(blockSize * blockSize);
+
+
+
+500x300grid
+100-200wall
+grid[i][100] = generateWeightedByte(new double[]{0.8,0.5,0.2,0.1,0.2,0.5});
+// Arrowhead size
+double headLen = 3.0;
+double headWidth = 2.0;
+____________
+1.test2
+Visualizer viz = new Visualizer(model);
+
+2.test2.0
+VisualizerAVG viz = new VisualizerAVG(model, 2, 16, 0);
+
+3.test2.1
+VisualizerAVG viz = new VisualizerAVG(model, 2, 16, 1);
+
+3.test2.1.1
+VisualizerAVG viz = new VisualizerAVG(model, 2, 16, 1);
+double headWidth = 4.0;
+
+4.test2.2
+VisualizerAVG viz = new VisualizerAVG(model, 2, 16, 2);
+double headWidth = 4.0;
+
+
+1000x500grid
+100-200wall
+grid[i][100] = generateWeightedByte(new double[]{0.8,0.5,0.2,0.1,0.2,0.5});
+double headLen = 3.0;
+double headWidth = 4.0;
+____________
+1.test3.2
+double scale = (double) cellSize * 0.5 / blockSize;
+VisualizerAVG viz = new VisualizerAVG(model, 1, 16, 2);
+
+2.test3.2.1
+double scale = (double) cellSize/ blockSize;
+VisualizerAVG viz = new VisualizerAVG(model, 1, 16, 2);
+
+3.test3.2.2
+double scale = (double) cellSize*1.5/ blockSize;
+
+conclusion: 2 better visualization than 1. see patterns better in 3 (count might have been more)
+
+
+
+
+
+
+
+
